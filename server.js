@@ -1,47 +1,53 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const errorHandler = require('./src/middleware/errorHandler');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Security Middleware
+// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Startup Checks
-if (!process.env.GITHUB_TOKEN) {
-    console.warn('WARNING: GITHUB_TOKEN is not set in .env file. API calls to GitHub may fail or be severely rate-limited.');
-} else {
-    console.log('GitHub Token found.');
-}
-
-// Health Check Endpoint
-app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', timestamp: new Date().toISOString() });
+// Health check
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'OK', 
+    message: 'GitHub Stats API is running!',
+    endpoints: [
+      '/api/stats?username=YOUR_USERNAME',
+      '/api/streak?username=YOUR_USERNAME'
+    ]
+  });
 });
 
-// Stats Endpoint
-const statsController = require('./src/controllers/statsController');
-app.get('/api/stats', statsController.getStats);
+// Basic stats endpoint (example)
+app.get('/api/stats', async (req, res) => {
+  const { username } = req.query;
+  
+  if (!username) {
+    return res.status(400).json({ error: 'Username required' });
+  }
 
-// Streak Endpoint
-const streakController = require('./src/controllers/streakController');
-app.get('/api/streak', streakController.getStreak);
+  // SVG response bhejenge
+  res.setHeader('Content-Type', 'image/svg+xml');
+  res.setHeader('Cache-Control', 'public, max-age=14400');
+  
+  const svg = `
+    <svg width="495" height="195" xmlns="http://www.w3.org/2000/svg">
+      <rect width="495" height="195" fill="#0d1117" rx="10"/>
+      <text x="247" y="100" font-family="Arial" font-size="24" fill="#58a6ff" text-anchor="middle">
+        ${username}'s GitHub Stats
+      </text>
+    </svg>
+  `;
+  
+  res.send(svg);
+});
 
-// Language Stats Endpoint
-const languageController = require('./src/controllers/languageController');
-app.get('/api/top-langs', languageController.getTopLanguages);
-
-// Commit Activity Endpoint
-const activityController = require('./src/controllers/activityController');
-app.get('/api/commit-activity', activityController.getCommitActivity);
-
-// Error Handling
-app.use(errorHandler);
-
-// Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  console.log(`Server running on port ${PORT}`);
 });
+
+// Vercel ke liye export karo
+module.exports = app;
