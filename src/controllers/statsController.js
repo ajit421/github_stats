@@ -6,13 +6,38 @@ const statsCache = new NodeCache({ stdTTL: 14400 }); // 4 hours
 
 const getStats = async (req, res, next) => {
     try {
-        const { username, theme = 'default', hide_border = 'false' } = req.query;
+        const {
+            username,
+            theme = 'default',
+            hide_border = 'false',
+            hide_rank = 'false',
+            show_icons = 'true',
+            custom_title,
+            bg_color,
+            text_color,
+            title_color,
+            icon_color,
+            border_color
+        } = req.query;
 
         if (!username) {
             return res.status(400).send('Missing username parameters');
         }
 
-        const cacheKey = `stats-${username}-${theme}-${hide_border}`;
+        const params = {
+            theme,
+            hide_border,
+            hide_rank,
+            show_icons,
+            custom_title,
+            bg_color,
+            text_color,
+            title_color,
+            icon_color,
+            border_color
+        };
+
+        const cacheKey = `stats-${username}-${JSON.stringify(params)}`;
         const cachedStats = statsCache.get(cacheKey);
 
         if (cachedStats) {
@@ -21,7 +46,7 @@ const getStats = async (req, res, next) => {
         }
 
         const stats = await githubService.getStats(username);
-        const svg = renderStatsCard(stats, { theme, hide_border });
+        const svg = renderStatsCard(stats, params);
 
         statsCache.set(cacheKey, svg);
 
