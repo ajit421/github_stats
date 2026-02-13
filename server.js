@@ -5,6 +5,7 @@ require('dotenv').config();
 const statsController = require('./src/controllers/statsController');
 const languageController = require('./src/controllers/languageController');
 const streakController = require('./src/controllers/streakController');
+const activityController = require('./src/controllers/activityController');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,7 +22,8 @@ app.get('/', (req, res) => {
     endpoints: [
       '/api/stats?username=YOUR_USERNAME',
       '/api/top-langs?username=YOUR_USERNAME',
-      '/api/streak?username=YOUR_USERNAME'
+      '/api/streak?username=YOUR_USERNAME',
+      '/api/commit-activity?username=YOUR_USERNAME'
     ]
   });
 });
@@ -30,6 +32,7 @@ app.get('/', (req, res) => {
 app.get('/api/stats', statsController.getStats);
 app.get('/api/top-langs', languageController.getTopLanguages);
 app.get('/api/streak', streakController.getStreak);
+app.get('/api/commit-activity', activityController.getCommitActivity);
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);

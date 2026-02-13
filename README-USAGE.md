@@ -1,34 +1,42 @@
 # Add to Your GitHub Profile
 
-Replace `YOUR-USERNAME` with your GitHub username.
-Replace `YOUR-DEPLOYMENT-URL` with your Vercel URL (e.g., `https://github-stats-api.vercel.app`).
+Replace `YOUR-USERNAME` with your GitHub username -> `ajit421`
+
+Replace `YOUR-DEPLOYMENT-URL` with your Vercel URL (e.g., `https://ajit421.vercel.app`).
 
 ## Basic Stats
-![GitHub Stats](https://YOUR-DEPLOYMENT-URL/api/stats?username=YOUR-USERNAME&theme=tokyonight&hide_border=true)
+![GitHub Stats](https://ajit421.vercel.app/api/stats?username=ajit421&theme=tokyonight&hide_border=true)
 
 ```markdown
-![GitHub Stats](https://YOUR-DEPLOYMENT-URL/api/stats?username=YOUR-USERNAME&theme=tokyonight&hide_border=true)
+![GitHub Stats](https://ajit421.vercel.app/api/stats?username=ajit421&theme=tokyonight&hide_border=true)
 ```
 
 ## Streak Stats
-![GitHub Streak](https://YOUR-DEPLOYMENT-URL/api/streak?username=YOUR-USERNAME&theme=tokyonight&hide_border=true)
+![GitHub Streak](https://ajit421.vercel.app/api/streak?username=ajit421&theme=tokyonight&hide_border=true)
 
 ```markdown
-![GitHub Streak](https://YOUR-DEPLOYMENT-URL/api/streak?username=YOUR-USERNAME&theme=tokyonight&hide_border=true)
+![GitHub Streak](https://ajit421.vercel.app/api/streak?username=ajit421&theme=tokyonight&hide_border=true)
 ```
 
 ## Top Languages
-![Top Languages](https://YOUR-DEPLOYMENT-URL/api/top-langs?username=YOUR-USERNAME&layout=compact&theme=tokyonight&hide_border=true)
+![Top Languages](https://ajit421.vercel.app/api/top-langs?username=ajit421&layout=compact&theme=tokyonight&hide_border=true)
 
 ```markdown
-![Top Languages](https://YOUR-DEPLOYMENT-URL/api/top-langs?username=YOUR-USERNAME&layout=compact&theme=tokyonight&hide_border=true)
+![Top Languages](https://ajit421.vercel.app/api/top-langs?username=ajit421&layout=compact&theme=tokyonight&hide_border=true)
 ```
 
 ## Commit Activity
-![Commit Activity](https://YOUR-DEPLOYMENT-URL/api/commit-activity?username=YOUR-USERNAME&theme=tokyonight)
+![Commit Activity](https://ajit421.vercel.app/api/commit-activity?username=ajit421&theme=tokyonight)
 
 ```markdown
-![Commit Activity](https://YOUR-DEPLOYMENT-URL/api/commit-activity?username=YOUR-USERNAME&theme=tokyonight)
+![Commit Activity](https://ajit421.vercel.app/api/commit-activity?username=ajit421&theme=tokyonight)
+```
+
+## Commit Activity Graph
+![Commit Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=ajit421&theme=tokyo-night)
+
+```markdown
+![Commit Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=ajit421&theme=tokyo-night)
 ```
 
 ## Available Themes
@@ -38,12 +46,12 @@ Replace `YOUR-DEPLOYMENT-URL` with your Vercel URL (e.g., `https://github-stats-
 - `radical`
 
 ## Centered Layout Example
-```html
+
 <div align="center">
-  <img src="https://YOUR-DEPLOYMENT-URL/api/stats?username=YOUR-USERNAME&theme=tokyonight&hide_border=true" height="195" />
-  <img src="https://YOUR-DEPLOYMENT-URL/api/streak?username=YOUR-USERNAME&theme=tokyonight&hide_border=true" height="195" />
-  <br/>
-  <img src="https://YOUR-DEPLOYMENT-URL/api/top-langs?username=YOUR-USERNAME&theme=tokyonight&layout=compact&hide_border=true" height="195" />
-  <img src="https://YOUR-DEPLOYMENT-URL/api/commit-activity?username=YOUR-USERNAME&theme=tokyonight" height="195" />
+  <img src="https://ajit421.vercel.app/api/stats?username=ajit421&theme=tokyonight&hide_border=true" height="195" />
+  <img src="https://ajit421.vercel.app/api/streak?username=ajit421&theme=tokyonight&hide_border=true" height="195" />
+  <img src="https://ajit421.vercel.app/api/top-langs?username=ajit421&theme=tokyonight&layout=compact&hide_border=true" height="195" />
+  <img src="https://ajit421.vercel.app/api/commit-activity?username=ajit421&theme=tokyonight" height="195" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=ajit421&theme=tokyo-night" width="100%" />
 </div>
-```
+
